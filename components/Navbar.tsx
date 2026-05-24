@@ -5,7 +5,6 @@ import { ThemeToggle } from './ThemeToggle'
 import { profile } from '@/data/profile'
 
 const sections = [
-  { id: 'about',        label: 'About'        },
   { id: 'news',         label: 'News'         },
   { id: 'publications', label: 'Publications' },
   { id: 'biography',    label: 'Biography'    },
