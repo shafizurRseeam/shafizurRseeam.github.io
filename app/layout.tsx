@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                        text-gray-900 dark:text-gray-100 font-sans antialiased">
         <ThemeProvider>
           <Navbar />
-          <main className="flex-1 max-w-2xl mx-auto w-full px-4 sm:px-6 py-8">
+          <main className="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 py-8">
             {children}
           </main>
           <Footer />

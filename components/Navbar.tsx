@@ -43,7 +43,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm
                        border-b border-gray-200 dark:border-gray-800">
-      <nav className="max-w-2xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <nav className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
 
         {/* Brand */}
         <a href="#about"
