@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font is loaded via next/font/google in app/layout.tsx — no @import needed */
+
+/* ── Smooth scrolling ─────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Prevent layout shift while JS loads the theme ───────────────────────── */
+html.dark {
+  color-scheme: dark;
+}
+
+/* ── Custom scrollbar (subtle) ────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+/* ── Selection colour ─────────────────────────────────────────────────────── */
+::selection {
+  @apply bg-blue-200 dark:bg-blue-800 text-gray-900 dark:text-gray-100;
+}
+
+/* ── Focus ring ──────────────────────────────────────────────────────────── */
+:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-gray-950;
+}
