@@ -7,7 +7,6 @@ import { profile } from '@/data/profile'
 const sections = [
   { id: 'news',         label: 'News'         },
   { id: 'publications', label: 'Publications' },
-  { id: 'biography',    label: 'Biography'    },
   { id: 'awards',       label: 'Awards'       },
   { id: 'teaching',     label: 'Teaching'     },
   { id: 'misc',         label: 'Misc'         },

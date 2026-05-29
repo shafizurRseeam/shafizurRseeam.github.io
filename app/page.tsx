@@ -138,6 +138,36 @@ export default function HomePage() {
           </p>
         )}
 
+        {/* Education */}
+        {p.biography?.length > 0 && (
+          <div className="mt-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-2">Education</p>
+            <div className="space-y-1.5">
+              {p.biography.map((entry: any, i: number) => (
+                <div key={i} className="flex items-baseline gap-2 text-sm">
+                  <span className="text-gray-300 dark:text-gray-600 shrink-0">▸</span>
+                  <span>
+                    <span className="font-medium text-gray-800 dark:text-gray-200">
+                      {entry.items[0]?.text}
+                    </span>
+                    {entry.institutionUrl ? (
+                      <a href={entry.institutionUrl} target="_blank" rel="noopener noreferrer"
+                         className="ml-1 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        {entry.institution}
+                      </a>
+                    ) : (
+                      <span className="ml-1 text-gray-500 dark:text-gray-400">{entry.institution}</span>
+                    )}
+                    {entry.period && (
+                      <span className="ml-1 text-gray-400 dark:text-gray-500">({entry.period})</span>
+                    )}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Social links — only filled-in links appear */}
         <SocialLinks className="mt-3" />
 
@@ -203,54 +233,6 @@ export default function HomePage() {
         ) : (
           <p className="text-sm text-gray-400 dark:text-gray-600 italic">
             Add papers in <code>data/publications.ts</code>
-          </p>
-        )}
-      </Card>
-
-      {/* ══════════════════════════════════════════════════ BIOGRAPHY ══ */}
-      <Card id="biography">
-        <CardHeading>Biography</CardHeading>
-        {p.biography?.length > 0 ? (
-          <div className="space-y-5">
-            {p.biography.map((entry: any, i: number) => (
-              <div key={i}>
-                <p className="text-sm">
-                  {entry.institutionUrl ? (
-                    <a href={entry.institutionUrl} target="_blank" rel="noopener noreferrer"
-                       className="font-semibold text-blue-600 dark:text-blue-400 hover:underline">
-                      {entry.institution}
-                    </a>
-                  ) : (
-                    <span className="font-semibold text-gray-800 dark:text-gray-200">{entry.institution}</span>
-                  )}
-                  {entry.period && (
-                    <span className="ml-2 text-blue-500 dark:text-blue-400">({entry.period})</span>
-                  )}
-                </p>
-                <ul className="mt-1.5 ml-1 space-y-1">
-                  {entry.items.map((item: any, j: number) => (
-                    <li key={j} className="flex gap-2 text-sm text-gray-600 dark:text-gray-400">
-                      <span className="text-gray-300 dark:text-gray-600 shrink-0 mt-0.5">•</span>
-                      <span>
-                        {item.text}
-                        {item.link?.label && (
-                          item.link.href
-                            ? <a href={item.link.href} target="_blank" rel="noopener noreferrer"
-                                 className="text-blue-600 dark:text-blue-400 hover:underline">
-                                {item.link.label}
-                              </a>
-                            : <span className="text-blue-600 dark:text-blue-400">{item.link.label}</span>
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-gray-400 dark:text-gray-600 italic">
-            Add education history in <code>data/profile.ts</code> under <code>biography:</code>
           </p>
         )}
       </Card>
