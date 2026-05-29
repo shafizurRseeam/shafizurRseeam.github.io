@@ -27,7 +27,10 @@ export const metadata: Metadata = {
     title: profile.name,
     description: `${profile.title} at ${profile.affiliation}`,
     type: 'website',
-    url: 'https://shafizurRseeam.github.io',
+    url: 'https://shafizurseeam.com',
+  },
+  verification: {
+    google: 'R0cz2eCEHC2gMUrxql-cuh1QvmtScI-52xB62H8jycI',
   },
 }
 
