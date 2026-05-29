@@ -48,128 +48,91 @@ export default function HomePage() {
   return (
     <div className="space-y-4">
 
-      {/* ══════════════════════════════════════════════════════ ABOUT ══
-          Compact style — position · institution · advisor · interests · links  */}
+      {/* ══════════════════════════════════════════════════════ ABOUT ══ */}
       <Card id="about">
         {/* Photo floats top-right */}
-        <div className="float-right ml-5 mb-2 hidden sm:block">
+        <div className="float-right ml-6 mb-2 hidden sm:block">
           <ProfilePhoto src="/prof_pic.jpg" name={profile.name} />
         </div>
 
         {/* Name */}
-        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 leading-snug">
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
           {profile.name}
         </h1>
 
-        {/* Compact identity rows */}
-        <div className="space-y-1 text-sm text-gray-600 dark:text-gray-400">
-
-          {/* Position */}
-          <div className="flex items-start gap-2">
-            <span className="mt-0.5 text-gray-400 shrink-0">🎓</span>
-            <span>
-              {profile.title}
-              {profile.department && <> in <span className="text-gray-700 dark:text-gray-300">{profile.department}</span></>}
-            </span>
-          </div>
-
-          {/* Institution */}
-          <div className="flex items-start gap-2">
-            <span className="mt-0.5 text-gray-400 shrink-0">🏛</span>
-            <span>
-              {p.affiliationUrl ? (
-                <a href={p.affiliationUrl} target="_blank" rel="noopener noreferrer"
-                   className="font-semibold text-gray-900 dark:text-gray-100
-                              hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  {profile.affiliation}
-                </a>
-              ) : (
-                <strong className="text-gray-900 dark:text-gray-100">{profile.affiliation}</strong>
-              )}
-              {p.college && (
-                <span className="text-xs text-gray-400 dark:text-gray-500 block">{p.college}</span>
-              )}
-            </span>
-          </div>
-
-          {/* Advisor */}
-          {p.advisor?.name && (
-            <div className="flex items-start gap-2 pl-6">
-              <span className="text-gray-400 shrink-0">↳</span>
-              <span>
-                Advisor:{' '}
-                {p.advisor.url ? (
-                  <a href={p.advisor.url} target="_blank" rel="noopener noreferrer"
-                     className="text-blue-600 dark:text-blue-400 hover:underline">
-                    {p.advisor.name}
-                  </a>
-                ) : (
-                  <span className="text-blue-600 dark:text-blue-400">{p.advisor.name}</span>
-                )}
-              </span>
-            </div>
+        {/* Subtitle */}
+        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          {profile.title}
+          {profile.department && <> · {profile.department}</>}
+          {profile.affiliation && (
+            <> · {p.affiliationUrl ? (
+              <a href={p.affiliationUrl} target="_blank" rel="noopener noreferrer"
+                 className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                {profile.affiliation}
+              </a>
+            ) : profile.affiliation}</>
           )}
-
-          {/* Location */}
-          {profile.location && (
-            <div className="flex items-start gap-2">
-              <span className="mt-0.5 text-gray-400 shrink-0">📍</span>
-              <span>{profile.location}</span>
-            </div>
-          )}
-        </div>
+        </p>
+        {profile.location && (
+          <p className="mt-0.5 text-xs text-gray-400 dark:text-gray-500">📍 {profile.location}</p>
+        )}
 
         {/* Photo on mobile */}
         <div className="my-4 sm:hidden">
           <ProfilePhoto src="/prof_pic.jpg" name={profile.name} />
         </div>
 
-        {/* Research interests */}
-        {profile.interests.length > 0 && (
-          <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-            <span className="font-medium text-gray-800 dark:text-gray-200">Research interests: </span>
-            {profile.interests.map((interest, i) => (
-              <span key={interest}>
-                {i > 0 && i < profile.interests.length - 1 && ', '}
-                {i > 0 && i === profile.interests.length - 1 && ', and '}
-                <strong className="font-medium text-gray-800 dark:text-gray-200">{interest}</strong>
-              </span>
-            ))}
+        {/* Short bio */}
+        {p.shortBio && (
+          <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            {p.shortBio}
           </p>
         )}
 
         {/* Education */}
         {p.biography?.length > 0 && (
-          <div className="mt-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-2">Education</p>
-            <div className="space-y-1.5">
-              {p.biography.map((entry: any, i: number) => (
-                <div key={i} className="flex items-baseline gap-2 text-sm">
-                  <span className="text-gray-300 dark:text-gray-600 shrink-0">▸</span>
-                  <span>
-                    <span className="font-medium text-gray-800 dark:text-gray-200">
-                      {entry.items[0]?.text}
-                    </span>
-                    {entry.institutionUrl ? (
-                      <a href={entry.institutionUrl} target="_blank" rel="noopener noreferrer"
-                         className="ml-1 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                        {entry.institution}
-                      </a>
-                    ) : (
-                      <span className="ml-1 text-gray-500 dark:text-gray-400">{entry.institution}</span>
+          <div className="mt-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500 mb-2">
+              Education
+            </p>
+            <div className="space-y-3">
+              {p.biography.map((entry: any, i: number) => {
+                const degreeText = entry.items[0]?.text?.replace(/,?\s*advised by\s*$/i, '') ?? ''
+                const advisorLink = entry.items[0]?.link
+                return (
+                  <div key={i} className="text-sm">
+                    <p className="font-medium text-gray-800 dark:text-gray-200">{degreeText}</p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      {entry.institutionUrl ? (
+                        <a href={entry.institutionUrl} target="_blank" rel="noopener noreferrer"
+                           className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                          {entry.institution}
+                        </a>
+                      ) : entry.institution}
+                      {entry.period && <span className="text-gray-400 dark:text-gray-500"> · {entry.period}</span>}
+                    </p>
+                    {advisorLink?.label && (
+                      <p className="text-gray-400 dark:text-gray-500">
+                        Advisor:{' '}
+                        {advisorLink.href ? (
+                          <a href={advisorLink.href} target="_blank" rel="noopener noreferrer"
+                             className="text-blue-600 dark:text-blue-400 hover:underline">
+                            {advisorLink.label}
+                          </a>
+                        ) : (
+                          <span className="text-blue-600 dark:text-blue-400">{advisorLink.label}</span>
+                        )}
+                      </p>
                     )}
-                    {entry.period && (
-                      <span className="ml-1 text-gray-400 dark:text-gray-500">({entry.period})</span>
-                    )}
-                  </span>
-                </div>
-              ))}
+                  </div>
+                )
+              })}
             </div>
           </div>
         )}
 
-        {/* Social links — only filled-in links appear */}
-        <SocialLinks className="mt-3" />
+        {/* Social links */}
+        <SocialLinks className="mt-5" />
 
         <div className="clear-both" />
       </Card>
@@ -178,31 +141,27 @@ export default function HomePage() {
       <Card id="news">
         <CardHeading>News</CardHeading>
         {profile.news.length > 0 ? (
-          <ScrollBox maxH="max-h-64">
-            <ul className="space-y-3">
-              {profile.news.map((item: any, i: number) => (
-                <li key={i} className="flex gap-4">
-                  <span className="shrink-0 text-xs font-mono text-gray-400 dark:text-gray-500 w-20 pt-0.5">
-                    {item.date}
-                  </span>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                    {item.bold && (
-                      <strong className="font-semibold text-gray-900 dark:text-gray-100 mr-1">
-                        {item.bold}
-                      </strong>
-                    )}
-                    {item.text}
-                    {item.link?.href && item.link?.label && (
-                      <> <a href={item.link.href} target="_blank" rel="noopener noreferrer"
-                           className="text-blue-600 dark:text-blue-400 hover:underline">
-                        {item.link.label} →
-                      </a></>
-                    )}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </ScrollBox>
+          <ul className="space-y-2">
+            {profile.news.slice(0, 5).map((item: any, i: number) => (
+              <li key={i} className="flex gap-3">
+                <span className="shrink-0 text-xs font-mono text-gray-400 dark:text-gray-500 w-20 pt-0.5">
+                  {item.date}
+                </span>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {item.bold && (
+                    <strong className="font-semibold text-gray-800 dark:text-gray-200">{item.bold} </strong>
+                  )}
+                  {item.text}
+                  {item.link?.href && item.link?.label && (
+                    <> <a href={item.link.href} target="_blank" rel="noopener noreferrer"
+                         className="text-blue-600 dark:text-blue-400 hover:underline">
+                      {item.link.label} →
+                    </a></>
+                  )}
+                </p>
+              </li>
+            ))}
+          </ul>
         ) : (
           <p className="text-sm text-gray-400 dark:text-gray-600 italic">
             Add news items in <code>data/profile.ts</code> under <code>news:</code>
@@ -239,7 +198,7 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════ AWARDS ══ */}
       <Card id="awards">
-        <CardHeading>Awards &amp; Honors</CardHeading>
+        <CardHeading>Awards</CardHeading>
         {p.awards?.length > 0 ? (
           <ul className="space-y-4">
             {p.awards.map((award: any, i: number) => (

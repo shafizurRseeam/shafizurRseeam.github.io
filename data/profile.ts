@@ -33,6 +33,8 @@ My research focuses on differential privacy and privacy-preserving agents — bu
 
 Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about research, collaborations, or anything privacy-related.`,
 
+  shortBio: `I work on privacy-preserving agentic systems, differential privacy, and privacy mechanisms for real-time location-based applications — building systems that provide strong formal guarantees without compromising utility.`,
+
   // ── Research interests ─────────────────────────────────────────────────────
   interests: [
     "Privacy-preserving Agentic Systems",
