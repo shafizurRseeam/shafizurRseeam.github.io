@@ -189,7 +189,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
   // ── Teaching ──────────────────────────────────────────────────────────────
   teaching: [
     {
-      role:        "Instructor (Upcoming)",
+      role:        "Instructor",
       upcoming:    true,
       institution: "Rochester Institute of Technology",
       location:    "Rochester, NY",

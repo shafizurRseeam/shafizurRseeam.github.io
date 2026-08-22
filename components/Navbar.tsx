@@ -4,13 +4,10 @@ import { useEffect, useState } from 'react'
 import { ThemeToggle } from './ThemeToggle'
 
 const sections = [
-  { id: 'news',         label: 'News'         },
   { id: 'publications', label: 'Publications' },
   { id: 'research',     label: 'Research'     },
   { id: 'teaching',     label: 'Teaching'     },
   { id: 'professional', label: 'Professional' },
-  { id: 'awards',       label: 'Awards'       },
-  { id: 'misc',         label: 'Misc'         },
 ]
 
 export function Navbar() {
