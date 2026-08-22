@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { DM_Sans } from 'next/font/google'
+import { Inter, Fraunces } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { Navbar } from '@/components/Navbar'
@@ -8,10 +8,18 @@ import { profile } from '@/data/profile'
 
 // next/font handles download, subsetting, and self-hosting automatically
 // No Google Fonts request is made at runtime — it's baked into the build
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-dm-sans',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-fraunces',
   display: 'swap',
 })
 
@@ -36,12 +44,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={dmSans.variable} suppressHydrationWarning>
-      <body className="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-900
-                       text-gray-900 dark:text-gray-100 font-sans antialiased">
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950
+                       text-stone-800 dark:text-stone-200 font-sans antialiased">
         <ThemeProvider>
           <Navbar />
-          <main className="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 py-8">
+          <main className="flex-1 w-full">
             {children}
           </main>
           <Footer />

@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import { profile } from '@/data/profile'
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
@@ -74,47 +77,73 @@ interface Props { className?: string }
 
 export function SocialLinks({ className = '' }: Props) {
   const { social, cv } = profile
+  const [copied, setCopied] = useState(false)
 
   // Helper: if value is already a full URL, use it; otherwise wrap it
   const url = (base: string, val: string) =>
     val.startsWith('http') ? val : `${base}${val}`
 
+  // mailto: only works if the OS has a default mail client configured — copy
+  // the address too so clicking always visibly does something.
+  const handleEmailClick = () => {
+    if (!social.email) return
+    navigator.clipboard?.writeText(social.email)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1800)
+  }
+
   const links = [
-    cv              && { label: 'Resume',         href: cv,                                                      Icon: ResumeIcon,   download: true  },
-    social.email    && { label: 'Email',           href: `mailto:${social.email}`,                               Icon: EmailIcon,    download: false },
+    cv              && { label: 'Resume',         href: cv,                                                      Icon: ResumeIcon   },
+    social.email    && { label: 'Email',           href: `mailto:${social.email}`,                               Icon: EmailIcon    },
     social.googleScholar && {
-      label: 'Google Scholar',
+      label: 'Scholar',
       href: url('https://scholar.google.com/citations?user=', social.googleScholar),
       Icon: ScholarIcon,
-      download: false,
     },
-    social.github   && { label: 'GitHub',          href: url('https://github.com/',           social.github),    Icon: GitHubIcon,   download: false },
-    social.linkedin && { label: 'LinkedIn',        href: url('https://linkedin.com/in/',      social.linkedin),  Icon: LinkedInIcon, download: false },
-    social.twitter  && { label: 'Twitter / X',     href: url('https://twitter.com/',          social.twitter),   Icon: TwitterIcon,  download: false },
-  ].filter(Boolean) as { label: string; href: string; Icon: () => JSX.Element; download: boolean }[]
+    social.github   && { label: 'GitHub',          href: url('https://github.com/',           social.github),    Icon: GitHubIcon   },
+    social.linkedin && { label: 'LinkedIn',        href: url('https://linkedin.com/in/',      social.linkedin),  Icon: LinkedInIcon },
+    social.twitter  && { label: 'Twitter / X',     href: url('https://twitter.com/',          social.twitter),   Icon: TwitterIcon  },
+  ].filter(Boolean) as { label: string; href: string; Icon: () => JSX.Element }[]
 
   if (links.length === 0) return null
 
   return (
-    <p className={`flex flex-wrap items-center gap-x-3 gap-y-1 text-sm ${className}`}>
-      {links.map((link, i) => (
-        <span key={link.label} className="flex items-center gap-x-3">
-          {i > 0 && <span className="text-gray-300 dark:text-gray-600 select-none">•</span>}
-          <a
-            href={link.href}
-            // Resume: download directly instead of opening in browser PDF viewer
-            download={link.download ? 'Shafizur_Rahman_Seeam_CV.pdf' : undefined}
-            target={link.href.startsWith('mailto') || link.download ? undefined : '_blank'}
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5
-                       text-gray-500 dark:text-gray-400
-                       hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-          >
-            <link.Icon />
-            <span>{link.label}</span>
-          </a>
-        </span>
-      ))}
-    </p>
+    <div className={`flex flex-wrap items-center gap-1.5 ${className}`}>
+      {links.map(link => {
+        const isEmail = link.href.startsWith('mailto')
+        return (
+          <span key={link.label} className="relative inline-block">
+            <a
+              href={link.href}
+              onClick={isEmail ? handleEmailClick : undefined}
+              target={isEmail ? undefined : '_blank'}
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-full border border-stone-200 dark:border-stone-800
+                         px-2 py-1 text-[13px] text-stone-600 dark:text-stone-400 whitespace-nowrap
+                         hover:border-accent-300 dark:hover:border-accent-700
+                         hover:text-accent-700 dark:hover:text-accent-400
+                         hover:bg-accent-50 dark:hover:bg-accent-950/30 transition-colors"
+            >
+              <link.Icon />
+              <span>{link.label}</span>
+            </a>
+
+            {/* Popup confirming the address was copied */}
+            {isEmail && copied && (
+              <span
+                role="status"
+                className="absolute left-1/2 -translate-x-1/2 -top-2 -translate-y-full z-20
+                           whitespace-nowrap rounded-lg bg-stone-900 dark:bg-stone-100
+                           px-3 py-1.5 text-xs font-medium text-white dark:text-stone-900 shadow-lg"
+              >
+                Copied {social.email}
+                <span className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent
+                                 border-t-stone-900 dark:border-t-stone-100" />
+              </span>
+            )}
+          </span>
+        )
+      })}
+    </div>
   )
 }

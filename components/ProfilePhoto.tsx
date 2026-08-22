@@ -20,14 +20,14 @@ export function ProfilePhoto({ src, name }: Props) {
     .toUpperCase()
 
   return (
-    <div className="relative h-36 w-36 rounded-xl overflow-hidden
-                    border border-gray-200 dark:border-gray-700 shadow-sm">
+    <div className="relative h-40 w-40 sm:h-44 sm:w-44 rounded-2xl overflow-hidden
+                    ring-1 ring-stone-200 dark:ring-stone-800 shadow-sm shrink-0">
       {/* Initials fallback — always rendered beneath the photo */}
       <div
         aria-hidden="true"
         className="absolute inset-0 flex items-center justify-center
-                   bg-gradient-to-br from-blue-400 to-indigo-500
-                   text-white text-4xl font-bold select-none"
+                   bg-gradient-to-br from-accent-400 to-accent-700
+                   text-white text-4xl font-serif select-none"
       >
         {initials}
       </div>

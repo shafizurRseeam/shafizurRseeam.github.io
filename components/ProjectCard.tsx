@@ -6,33 +6,33 @@ interface Props {
 }
 
 const statusColors = {
-  active:    'bg-green-100  text-green-700  dark:bg-green-950/40  dark:text-green-400',
-  completed: 'bg-blue-100   text-blue-700   dark:bg-blue-950/40   dark:text-blue-400',
-  archived:  'bg-gray-100   text-gray-500   dark:bg-gray-800      dark:text-gray-400',
+  active:    'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400',
+  completed: 'bg-accent-50  text-accent-700  dark:bg-accent-950/40  dark:text-accent-400',
+  archived:  'bg-stone-100  text-stone-500   dark:bg-stone-800      dark:text-stone-400',
 }
 
 export function ProjectCard({ project }: Props) {
   return (
-    <article className="flex flex-col rounded-xl border border-gray-200 dark:border-gray-800
-                        bg-white dark:bg-gray-900/40 hover:border-blue-300 dark:hover:border-blue-700
-                        hover:shadow-md transition-all overflow-hidden group">
+    <article className="flex flex-col rounded-2xl border border-stone-200 dark:border-stone-800
+                        bg-white dark:bg-stone-900/40 hover:border-accent-300 dark:hover:border-accent-700
+                        hover:shadow-sm transition-all overflow-hidden group">
 
       {/* Optional project image */}
       {project.image && (
-        <div className="relative h-44 w-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
+        <div className="relative h-44 w-full bg-stone-100 dark:bg-stone-800 overflow-hidden">
           <Image src={project.image} alt={project.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
         </div>
       )}
 
       {/* No image: colored placeholder */}
       {!project.image && (
-        <div className="h-2 w-full bg-gradient-to-r from-blue-400 to-indigo-500" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-accent-400 to-accent-700" />
       )}
 
       <div className="flex flex-col flex-1 p-5">
         {/* Title + status */}
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 leading-snug">
+          <h3 className="font-serif text-lg text-stone-900 dark:text-stone-100 leading-snug">
             {project.title}
           </h3>
           {project.status && (
@@ -43,7 +43,7 @@ export function ProjectCard({ project }: Props) {
         </div>
 
         {/* Description */}
-        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex-1">
+        <p className="mt-2 text-sm text-stone-600 dark:text-stone-400 leading-relaxed flex-1">
           {project.description}
         </p>
 
@@ -51,8 +51,8 @@ export function ProjectCard({ project }: Props) {
         <div className="mt-3 flex flex-wrap gap-1.5">
           {project.tags.map(tag => (
             <span key={tag}
-              className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800
-                         text-gray-600 dark:text-gray-400">
+              className="text-xs px-2 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800
+                         text-stone-600 dark:text-stone-400">
               {tag}
             </span>
           ))}
@@ -62,8 +62,8 @@ export function ProjectCard({ project }: Props) {
         <div className="mt-4 flex flex-wrap gap-3 text-sm">
           {project.github && (
             <a href={project.github} target="_blank" rel="noopener noreferrer"
-               className="inline-flex items-center gap-1.5 font-medium text-gray-600 dark:text-gray-400
-                          hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+               className="inline-flex items-center gap-1.5 font-medium text-stone-600 dark:text-stone-400
+                          hover:text-accent-700 dark:hover:text-accent-400 transition-colors">
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                 <path fillRule="evenodd" clipRule="evenodd"
                   d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483
@@ -80,8 +80,8 @@ export function ProjectCard({ project }: Props) {
           )}
           {project.demo && (
             <a href={project.demo} target="_blank" rel="noopener noreferrer"
-               className="inline-flex items-center gap-1.5 font-medium text-gray-600 dark:text-gray-400
-                          hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+               className="inline-flex items-center gap-1.5 font-medium text-stone-600 dark:text-stone-400
+                          hover:text-accent-700 dark:hover:text-accent-400 transition-colors">
               <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -90,8 +90,8 @@ export function ProjectCard({ project }: Props) {
           )}
           {project.paper && (
             <a href={project.paper} target="_blank" rel="noopener noreferrer"
-               className="inline-flex items-center gap-1.5 font-medium text-gray-600 dark:text-gray-400
-                          hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+               className="inline-flex items-center gap-1.5 font-medium text-stone-600 dark:text-stone-400
+                          hover:text-accent-700 dark:hover:text-accent-400 transition-colors">
               <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>

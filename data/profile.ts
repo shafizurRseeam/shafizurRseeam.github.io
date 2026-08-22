@@ -23,7 +23,7 @@ export const profile = {
   // ── Advisor ───────────────────────────────────────────────────────────────
   advisor: {
     name: "Dr. Yidan Hu",
-    url:  "https://yidanhu.csec.rit.edu/",   // ← add advisor's webpage URL
+    url:  "https://yidanhu.csec.rit.edu/",
   },
 
   // ── Bio (used in Biography section) ──────────────────────────────────────
@@ -33,38 +33,47 @@ My research focuses on differential privacy and privacy-preserving agents — bu
 
 Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about research, collaborations, or anything privacy-related.`,
 
-  shortBio: `I work on privacy-preserving agentic systems, differential privacy, and privacy mechanisms for real-time location-based applications — building systems that provide strong formal guarantees without compromising utility.`,
-
   // ── Research interests ─────────────────────────────────────────────────────
   interests: [
-    "Privacy-preserving Agentic Systems",
+    "Privacy-Enhancing Technologies",
     "Differential Privacy",
+    "Agent Privacy",
   ],
 
   // ── Social / contact ──────────────────────────────────────────────────────
   social: {
     email:         "ss6365@rit.edu",
-    github:        "ShafizurRahmanSeeam",
-    // To find your Scholar URL: go to scholar.google.com → My Profile → copy the URL
-    // It looks like: https://scholar.google.com/citations?user=XXXXXXXXX
-    googleScholar: "https://scholar.google.com/citations?user=8wPqG7cAAAAJ&hl=en",   // ← paste your full Scholar URL here
+    github:        "https://github.com/shafizurRseeam",
+    googleScholar: "https://scholar.google.com/citations?user=8wPqG7cAAAAJ&hl=en",
     linkedin:      "https://www.linkedin.com/in/shafizurrahmanseeam/",
     twitter:       "",
   },
 
   // ── CV / Resume ───────────────────────────────────────────────────────────
-  cv: "/cv.pdf",    // drop your PDF into public/ as cv.pdf
+  cv: "/cv.pdf",
 
   // ── News ──────────────────────────────────────────────────────────────────
   news: [
     {
+      date: "Jul 2026",
+      bold: "PETS 2026:",
+      text: "Received the Student Travel Stipend Award.",
+      link: { label: "", href: "" },
+    },
+    {
+      date: "Jun 2026",
+      bold: "ICDCS '26:",
+      text: "PrivAR accepted — a client-side privacy framework for real-time location-based augmented reality.",
+      link: { label: "arXiv", href: "https://arxiv.org/abs/2508.02551" },
+    },
+    {
       date: "May 2026",
       bold: "New preprint:",
-      text: "PrivScope: Task-scoped Disclosure Control for Hybrid Agentic Systems.",
+      text: "PrivScope: Task-scoped Disclosure Control for Information-seeking Hybrid Agentic Systems.",
       link: { label: "arXiv", href: "https://arxiv.org/abs/2605.16630" },
     },
     {
-      date: "Jul 2026",
+      date: "Mar 2026",
       bold: "PETs '26:",
       text: "Paper accepted — Frequency Estimation of Correlated Multi-attribute Data under LDP.",
       link: { label: "arXiv", href: "https://arxiv.org/abs/2507.17516" },
@@ -95,26 +104,52 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       institution:    "Rochester Institute of Technology",
       institutionUrl: "https://www.rit.edu",
       period:         "Jan 2023 – Present",
-      items: [
-        { text: "Ph.D. in Computer and Information Sciences, advised by ", link: { label: "Dr. Yidan Hu", href: "https://yidanhu.csec.rit.edu/" } },
-        { text: "Research Interests: Privacy-preserving Agentic System, Prompt Privacy, Differential Privacy" },
-        { text: "Coursework: Software Engineering, Random Noise and Signals, Statistical Machine Learning, Cyberinfrastructure Foundations, Quantitative Foundations" },
-      ],
+      degree:         "Ph.D. in Computer and Information Sciences",
+      advisor:        { label: "Dr. Yidan Hu", href: "https://yidanhu.csec.rit.edu/" },
+      dissertation:   "Beyond Isolated Decisions: Advancing Dependence-Aware User-Side Privacy Mechanisms",
     },
     {
       institution:    "University of Dhaka",
       institutionUrl: "https://www.du.ac.bd",
       period:         "Jan 2015 – Dec 2019",
+      degree:         "B.Sc. in Electrical and Electronic Engineering",
+    },
+  ],
+
+  // ── Research experience ──────────────────────────────────────────────────
+  research: [
+    {
+      role:        "Graduate Research Assistant",
+      institution: "Rochester Institute of Technology",
+      period:      "Jan 2023 – Present",
+      advisor:     { label: "Dr. Yidan Hu", href: "https://yidanhu.csec.rit.edu/" },
       items: [
-        { text: "B.Sc. in Electrical and Electronic Engineering" },
-        { text: "Thesis 1: Feature Extraction and Semi-Supervised Learning in a Wrist Mounted Motion Detection System for Elderly Citizens" },
-        { text: "Thesis 2: Addressing Security Vulnerabilities of Cyberphysical Remote-Sensing Small Satellite Systems" },
+        { label: "Privacy-preserving agentic systems", text: "User-side disclosure control for hybrid local–cloud agents." },
+        { label: "Differential privacy", text: "Dependence-aware mechanisms for multi-attribute frequency estimation under LDP." },
+        { label: "Location privacy", text: "Client-side mechanisms for real-time, latency-sensitive AR location reporting." },
       ],
+    },
+  ],
+
+  // ── Professional experience ──────────────────────────────────────────────
+  professional: [
+    {
+      role:          "Operations Manager & Director",
+      institution:   "Orboroi AB",
+      institutionUrl: "https://orboroi.com/",
+      location:      "Stockholm, Sweden",
+      period:        "Jul 2021 – Present",
     },
   ],
 
   // ── Awards ────────────────────────────────────────────────────────────────
   awards: [
+    {
+      title:       "PETS 2026 Student Travel Stipend Award",
+      venue:       "PETS Award Committee, 2026",
+      description: "",
+      link: "",
+    },
     {
       title:       "Best Paper Award Candidate",
       venue:       "ICIEV 2018, Kitakyushu, Japan",
@@ -145,57 +180,34 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       description: "",
       link: "",
     },
-    {
-      title:       "Junior Scholarship",
-      venue:       "2008",
-      description: "",
-      link: "",
-    },
   ],
 
   // ── Teaching ──────────────────────────────────────────────────────────────
   teaching: [
+    {
+      role:        "Instructor",
+      upcoming:    true,
+      institution: "Rochester Institute of Technology",
+      location:    "Rochester, NY",
+      period:      "Spring 2027",
+      items: [
+        "Authentication and Security Models — selected to independently teach the course after three terms as TA.",
+      ],
+    },
     {
       role:        "Graduate Teaching Assistant",
       institution: "Rochester Institute of Technology",
       location:    "Rochester, NY",
       period:      "Aug 2024 – Present",
       items: [
-        "Teaching Assistant — Authentication and Security Models (Fall 2024, Spring 2025, Fall 2025); assisted in course design, developed lab assignments, and graded student submissions.",
-        "Teaching Assistant — Graduate Seminar in Computing and Security (Spring 2025).",
+        "Authentication and Security Models (Fall 2024, Spring 2025, Fall 2025)",
+        "Graduate Seminar in Computing and Security (Spring 2025)",
       ],
     },
   ],
 
-  // ── Misc ──────────────────────────────────────────────────────────────────
-  misc: [
-    {
-      title: "Experience",
-      items: [
-        "Graduate Research Assistant, RIT (Jan 2023 – Present) · Advisor: Dr. Yidan Hu",
-        "Operations Manager & Director, Orboroi AB, Stockholm, Sweden (Jul 2021 – Present)",
-      ],
-    },
-    {
-      title: "Skills",
-      items: [
-        "Programming: Python, SQL, Matlab",
-        "Tools & Frameworks: TensorFlow, Android Studio",
-      ],
-    },
-    {
-      title: "Certificates",
-      items: [
-        "Deep Learning Specialization — Coursera / DeepLearning.AI (Feb–Jul 2020)",
-        "TensorFlow Developer Specialization — Coursera / DeepLearning.AI (Aug–Nov 2020)",
-        "Mathematics for Machine Learning: Linear Algebra & Multivariate Calculus — Coursera / Imperial College London (Jan–Feb 2021)",
-      ],
-    },
-    {
-      title: "Extracurricular",
-      items: [
-        "Genius Olympiad Judge (2023, 2024) — International high school environmental project competition, organized by Terra Science and Education, hosted by RIT",
-      ],
-    },
+  // ── Service ───────────────────────────────────────────────────────────────
+  service: [
+    "Judge, GENIUS Olympiad international high school project competition (2023, 2024)",
   ],
 }

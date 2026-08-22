@@ -7,9 +7,11 @@ import { profile } from '@/data/profile'
 const sections = [
   { id: 'news',         label: 'News'         },
   { id: 'publications', label: 'Publications' },
-  { id: 'awards',       label: 'Awards'       },
+  { id: 'research',     label: 'Research'     },
   { id: 'teaching',     label: 'Teaching'     },
-  { id: 'misc',         label: 'Misc'         },
+  { id: 'professional', label: 'Professional' },
+  { id: 'awards',       label: 'Awards'       },
+  { id: 'service',      label: 'Service'      },
 ]
 
 export function Navbar() {
@@ -32,42 +34,45 @@ export function Navbar() {
     return () => observer.disconnect()
   }, [])
 
-  const linkClass = (id: string) =>
-    `px-2.5 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-      activeId === id
-        ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50'
-        : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800'
+  const linkClass = (isActive: boolean) =>
+    `relative px-0.5 py-1.5 text-sm font-medium tracking-wide whitespace-nowrap transition-colors ${
+      isActive
+        ? 'text-stone-900 dark:text-stone-100'
+        : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100'
     }`
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-sm
-                       border-b border-gray-200 dark:border-gray-800">
-      <nav className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-stone-50/85 dark:bg-stone-950/85 backdrop-blur-md
+                       border-b border-stone-200 dark:border-stone-800">
+      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
 
         {/* Brand */}
         <a href="#about"
-           className="text-sm font-semibold text-gray-900 dark:text-gray-100
-                      hover:text-blue-600 dark:hover:text-blue-400 transition-colors shrink-0">
+           className="font-serif text-base sm:text-lg italic text-stone-900 dark:text-stone-100
+                      hover:text-accent-700 dark:hover:text-accent-400 transition-colors shrink-0">
           {profile.name}
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-0.5">
+        <div className="hidden md:flex items-center gap-4 lg:gap-5">
           {sections.map(({ id, label }) => (
-            <a key={id} href={`#${id}`} className={linkClass(id)}>
+            <a key={id} href={`#${id}`} className={linkClass(activeId === id)}>
               {label}
+              <span className={`absolute -bottom-1 left-0 right-0 h-px transition-opacity ${
+                activeId === id ? 'bg-accent-600 dark:bg-accent-400 opacity-100' : 'opacity-0'
+              }`} />
             </a>
           ))}
-          <div className="ml-2 pl-2 border-l border-gray-200 dark:border-gray-700">
+          <div className="ml-1 pl-4 border-l border-stone-200 dark:border-stone-700 shrink-0">
             <ThemeToggle />
           </div>
         </div>
 
         {/* Mobile */}
-        <div className="flex md:hidden items-center gap-1">
+        <div className="flex md:hidden items-center gap-1 shrink-0">
           <ThemeToggle />
           <button onClick={() => setMobileOpen(o => !o)} aria-label="Toggle menu"
-            className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            className="p-2 rounded-lg text-stone-500 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition-colors">
             {mobileOpen ? (
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -83,12 +88,12 @@ export function Navbar() {
 
       {/* Mobile dropdown */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-gray-200 dark:border-gray-800
-                        bg-white dark:bg-gray-950 px-4 pb-3 grid grid-cols-3 gap-1 pt-2">
+        <div className="md:hidden border-t border-stone-200 dark:border-stone-800
+                        bg-stone-50 dark:bg-stone-950 px-6 pb-4 grid grid-cols-3 gap-1 pt-3">
           {sections.map(({ id, label }) => (
             <a key={id} href={`#${id}`}
                onClick={() => setMobileOpen(false)}
-               className={`text-center ${linkClass(id)}`}>
+               className={`text-center py-1.5 rounded-lg ${linkClass(activeId === id)}`}>
               {label}
             </a>
           ))}
