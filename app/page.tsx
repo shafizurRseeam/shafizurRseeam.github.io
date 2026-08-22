@@ -67,27 +67,27 @@ export default function HomePage() {
               {profile.location && <span> · {profile.location}</span>}
             </p>
 
-            {/* Research interests */}
-            {p.interests?.length > 0 && (
-              <div className="mt-4 flex flex-wrap items-center gap-1.5">
-                <span className="text-[15px] font-semibold text-stone-700 dark:text-stone-300 mr-0.5">
-                  Research interests:
-                </span>
-                {p.interests.map((interest: string) => (
-                  <span key={interest}
-                    className="text-xs font-semibold px-2.5 py-1 rounded-full
-                               bg-accent-50 dark:bg-accent-950/40 text-accent-700 dark:text-accent-400">
-                    {interest}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            <SocialLinks className="mt-6" />
+            <SocialLinks className="mt-5" />
           </div>
 
           <ProfilePhoto src="/prof_pic.jpg" name={profile.name} />
         </div>
+
+        {/* Research interests — full card width so it doesn't compete with the photo */}
+        {p.interests?.length > 0 && (
+          <div className="mt-5 flex flex-wrap items-center gap-1.5">
+            <span className="text-[15px] font-semibold text-stone-700 dark:text-stone-300 mr-0.5">
+              Research interests:
+            </span>
+            {p.interests.map((interest: string) => (
+              <span key={interest}
+                className="text-xs font-semibold px-2.5 py-1 rounded-full
+                           bg-accent-50 dark:bg-accent-950/40 text-accent-700 dark:text-accent-400">
+                {interest}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Education */}
         {p.biography?.length > 0 && (
@@ -266,24 +266,31 @@ export default function HomePage() {
       <Card id="professional">
         <CardHeading>Professional Experience</CardHeading>
         {p.professional?.length > 0 ? (
-          <div>
+          <div className="space-y-7">
             {p.professional.map((entry: any, i: number) => (
-              <div key={i}
-                className="py-3.5 border-b border-dashed border-stone-200 dark:border-stone-800 last:border-0
-                           flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
-                <div>
+              <div key={i}>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
                   <p className="font-bold text-[15px] text-stone-900 dark:text-stone-100">{entry.role}</p>
-                  <p className="text-sm text-stone-500 dark:text-stone-500 italic">
-                    {entry.institutionUrl ? (
-                      <a href={entry.institutionUrl} target="_blank" rel="noopener noreferrer"
-                         className="not-italic font-medium hover:text-accent-700 dark:hover:text-accent-400 transition-colors">
-                        {entry.institution}
-                      </a>
-                    ) : entry.institution}
-                    {entry.location && `, ${entry.location}`}
-                  </p>
+                  <p className="text-sm text-stone-400 dark:text-stone-500 shrink-0 font-mono">{entry.period}</p>
                 </div>
-                <span className="text-sm text-stone-400 dark:text-stone-500 shrink-0 font-mono">{entry.period}</span>
+                <p className="text-sm text-stone-500 dark:text-stone-500 italic">
+                  {entry.institutionUrl ? (
+                    <a href={entry.institutionUrl} target="_blank" rel="noopener noreferrer"
+                       className="not-italic font-medium hover:text-accent-700 dark:hover:text-accent-400 transition-colors">
+                      {entry.institution}
+                    </a>
+                  ) : entry.institution}
+                  {entry.location && `, ${entry.location}`}
+                </p>
+                {entry.items?.length > 0 && (
+                  <ul className="mt-2 space-y-1.5 list-disc list-outside pl-5 marker:text-accent-500">
+                    {entry.items.map((item: string, j: number) => (
+                      <li key={j} className="text-[15px] text-stone-600 dark:text-stone-400 leading-relaxed">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
@@ -322,19 +329,28 @@ export default function HomePage() {
         )}
       </Card>
 
-      {/* ══════════════════════════════════════════════════════════ SERVICE ══ */}
-      <Card id="service">
-        <CardHeading>Service</CardHeading>
-        {p.service?.length > 0 ? (
-          <ul className="space-y-1.5 list-disc list-outside pl-5 marker:text-accent-500">
-            {p.service.map((item: string, i: number) => (
-              <li key={i} className="text-[15px] text-stone-600 dark:text-stone-400 leading-relaxed">
-                {item}
-              </li>
+      {/* ══════════════════════════════════════════════════════════════ MISC ══ */}
+      <Card id="misc">
+        <CardHeading>Misc</CardHeading>
+        {p.misc?.some((g: any) => g.items.length > 0) ? (
+          <div className="space-y-7">
+            {p.misc.filter((g: any) => g.items.length > 0).map((group: any, i: number) => (
+              <div key={i}>
+                <h3 className="text-sm font-bold text-stone-800 dark:text-stone-200 mb-2">
+                  {group.title}
+                </h3>
+                <ul className="space-y-1.5 list-disc list-outside pl-5 marker:text-accent-500">
+                  {group.items.map((item: string, j: number) => (
+                    <li key={j} className="text-[15px] text-stone-600 dark:text-stone-400 leading-relaxed">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
-          <Empty>Add service entries in <code>data/profile.ts</code> under <code>service:</code></Empty>
+          <Empty>Add items in <code>data/profile.ts</code> under <code>misc:</code></Empty>
         )}
       </Card>
 

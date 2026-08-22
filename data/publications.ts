@@ -37,15 +37,17 @@ export const publications: Publication[] = [
     venueFull: "46th IEEE International Conference on Distributed Computing Systems, Seoul, South Korea",
     year: 2026,
     href: "https://ieeexplore.ieee.org/document/11619161",
+    slides: "/slides/privar-icdcs26-slides.pdf",
   },
 
   {
     title: "Frequency Estimation of Correlated Multi-attribute Data under Local Differential Privacy",
     authors: ["Shafizur Rahman Seeam", "Ye Zheng", "Yidan Hu"],
     venue:     "PoPETs '26",
-    venueFull: "Proceedings on Privacy Enhancing Technologies — presented at PETS 2026, Calgary, Canada",
+    venueFull: "Proceedings on Privacy Enhancing Technologies (PoPETs)",
     year: 2026,
     href: "https://petsymposium.org/popets/2026/popets-2026-0034.php",
+    slides: "/slides/corr-rr-popets26-slides.pdf",
   },
 
   // ══════════════════════════════════════════════════════════════ 2025 ══════
@@ -54,7 +56,7 @@ export const publications: Publication[] = [
     title: "Locally Differentially Private Frequency Estimation via Joint Randomized Response",
     authors: ["Ye Zheng", "Shafizur Rahman Seeam", "Yidan Hu", "Rui Zhang", "Yanchao Zhang"],
     venue:     "PoPETs '25",
-    venueFull: "Proceedings on Privacy Enhancing Technologies — presented at PETS 2025, Washington, DC",
+    venueFull: "Proceedings on Privacy Enhancing Technologies (PoPETs)",
     year: 2025,
     href: "https://petsymposium.org/popets/2025/popets-2025-0097.php",
   },

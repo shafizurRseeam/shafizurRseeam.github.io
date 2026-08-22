@@ -37,7 +37,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
   interests: [
     "Privacy-Enhancing Technologies",
     "Differential Privacy",
-    "Agent Privacy",
+    "AI Agent Privacy",
   ],
 
   // ── Social / contact ──────────────────────────────────────────────────────
@@ -50,7 +50,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
   },
 
   // ── CV / Resume ───────────────────────────────────────────────────────────
-  cv: "/cv.pdf",
+  cv: "/CV_august.pdf",
 
   // ── News ──────────────────────────────────────────────────────────────────
   news: [
@@ -134,11 +134,16 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
   // ── Professional experience ──────────────────────────────────────────────
   professional: [
     {
-      role:          "Operations Manager & Director",
+      role:          "Co-Founder & Director",
       institution:   "Orboroi AB",
       institutionUrl: "https://orboroi.com/",
       location:      "Stockholm, Sweden",
       period:        "Jul 2021 – Present",
+      items: [
+        "Lead Bangladesh operations, including team coordination, client engagement, and project delivery.",
+        "Oversee financial operations, including cash flow, payments, and expense control.",
+        "Deploy and maintain the company website, database, CVAT platform, and Linux servers.",
+      ],
     },
   ],
 
@@ -153,7 +158,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
     {
       title:       "Best Paper Award Candidate",
       venue:       "ICIEV 2018, Kitakyushu, Japan",
-      description: 'For "DU-MD: An Open-Source Human Action Dataset for Ubiquitous Wearable Sensors".',
+      description: "",
       link: "",
     },
     {
@@ -164,7 +169,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
     },
     {
       title:       "1st & 2nd Place — Bangladesh Electronics Olympiad Project Competition",
-      venue:       "2015 and 2017",
+      venue:       "2015 & 2017",
       description: "",
       link: "",
     },
@@ -185,13 +190,13 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
   // ── Teaching ──────────────────────────────────────────────────────────────
   teaching: [
     {
-      role:        "Instructor",
+      role:        "Instructor (Upcoming)",
       upcoming:    true,
       institution: "Rochester Institute of Technology",
       location:    "Rochester, NY",
       period:      "Spring 2027",
       items: [
-        "Authentication and Security Models — selected to independently teach the course after three terms as TA.",
+        "Authentication and Security Models (CSEC 472) — primary instructor for ~35 students, full responsibility for course design, lectures, labs, project supervision, and assessment.",
       ],
     },
     {
@@ -200,14 +205,27 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       location:    "Rochester, NY",
       period:      "Aug 2024 – Present",
       items: [
-        "Authentication and Security Models (Fall 2024, Spring 2025, Fall 2025)",
-        "Graduate Seminar in Computing and Security (Spring 2025)",
+        "Advanced Data Privacy (CSEC 721) — Spring 2026",
+        "Authentication and Security Models (CSEC 472) — Fall 2024, Spring 2025, Fall 2025, Fall 2026",
+        "Graduate Seminar in Computing Security (CSEC 759) — Spring 2025",
       ],
     },
   ],
 
-  // ── Service ───────────────────────────────────────────────────────────────
-  service: [
-    "Judge, GENIUS Olympiad international high school project competition (2023, 2024)",
+  // ── Misc ──────────────────────────────────────────────────────────────────
+  misc: [
+    {
+      title: "Academic & Professional Service",
+      items: [
+        "Judge, GENIUS Olympiad international high-school project competition, 2023 and 2024.",
+      ],
+    },
+    {
+      title: "Technical Skills",
+      items: [
+        "Programming & AI: Python, Kotlin, SQL, MATLAB, TensorFlow, LangChain, Ollama",
+        "Systems & Tools: Linux, Node.js, MongoDB, Android, CVAT, Git, LaTeX",
+      ],
+    },
   ],
 }

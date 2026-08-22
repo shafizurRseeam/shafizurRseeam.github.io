@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { ThemeToggle } from './ThemeToggle'
-import { profile } from '@/data/profile'
 
 const sections = [
   { id: 'news',         label: 'News'         },
@@ -11,7 +10,7 @@ const sections = [
   { id: 'teaching',     label: 'Teaching'     },
   { id: 'professional', label: 'Professional' },
   { id: 'awards',       label: 'Awards'       },
-  { id: 'service',      label: 'Service'      },
+  { id: 'misc',         label: 'Misc'         },
 ]
 
 export function Navbar() {
@@ -44,17 +43,13 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-stone-50/85 dark:bg-stone-950/85 backdrop-blur-md
                        border-b border-stone-200 dark:border-stone-800">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+      <nav className="max-w-3xl mx-auto px-6 h-16 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
 
-        {/* Brand */}
-        <a href="#about"
-           className="font-serif text-base sm:text-lg italic text-stone-900 dark:text-stone-100
-                      hover:text-accent-700 dark:hover:text-accent-400 transition-colors shrink-0">
-          {profile.name}
-        </a>
+        {/* Empty spacer — keeps the links truly centered against the controls on the right */}
+        <div />
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-4 lg:gap-5">
+        {/* Desktop links — centered */}
+        <div className="hidden md:flex items-center justify-self-center gap-4 lg:gap-5">
           {sections.map(({ id, label }) => (
             <a key={id} href={`#${id}`} className={linkClass(activeId === id)}>
               {label}
@@ -63,16 +58,13 @@ export function Navbar() {
               }`} />
             </a>
           ))}
-          <div className="ml-1 pl-4 border-l border-stone-200 dark:border-stone-700 shrink-0">
-            <ThemeToggle />
-          </div>
         </div>
 
-        {/* Mobile */}
-        <div className="flex md:hidden items-center gap-1 shrink-0">
+        {/* Controls: always right-aligned */}
+        <div className="justify-self-end flex items-center gap-1 shrink-0">
           <ThemeToggle />
           <button onClick={() => setMobileOpen(o => !o)} aria-label="Toggle menu"
-            className="p-2 rounded-lg text-stone-500 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition-colors">
+            className="md:hidden p-2 rounded-lg text-stone-500 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition-colors">
             {mobileOpen ? (
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
