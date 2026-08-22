@@ -106,7 +106,6 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       period:         "Jan 2023 – Present",
       degree:         "Ph.D. in Computer and Information Sciences",
       advisor:        { label: "Dr. Yidan Hu", href: "https://yidanhu.csec.rit.edu/" },
-      dissertation:   "Beyond Isolated Decisions: Advancing Dependence-Aware User-Side Privacy Mechanisms",
     },
     {
       institution:    "University of Dhaka",
