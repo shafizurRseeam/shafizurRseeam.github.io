@@ -5,9 +5,8 @@ import { ThemeToggle } from './ThemeToggle'
 
 const sections = [
   { id: 'publications', label: 'Publications' },
-  { id: 'research',     label: 'Research'     },
   { id: 'teaching',     label: 'Teaching'     },
-  { id: 'professional', label: 'Professional' },
+  { id: 'professional', label: 'Experience'   },
 ]
 
 export function Navbar() {

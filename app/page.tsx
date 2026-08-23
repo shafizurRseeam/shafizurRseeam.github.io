@@ -47,8 +47,8 @@ export default function HomePage() {
 
       {/* ══════════════════════════════════════════════════════ ABOUT ══ */}
       <Card id="about">
-        <div className="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between gap-6">
-          <div className="flex-1 min-w-0">
+        <div className="flex flex-col-reverse sm:flex-row items-center sm:items-start sm:justify-between gap-6">
+          <div className="flex-1 min-w-0 text-center sm:text-left">
             <h1 className="font-serif text-3xl sm:text-4xl text-stone-900 dark:text-stone-50 leading-tight tracking-tight">
               {profile.name}
             </h1>
@@ -67,7 +67,7 @@ export default function HomePage() {
               {profile.location && <span> · {profile.location}</span>}
             </p>
 
-            <SocialLinks className="mt-5" />
+            <SocialLinks className="mt-5 justify-center sm:justify-start" />
           </div>
 
           <ProfilePhoto src="/prof_pic.jpg" name={profile.name} />
