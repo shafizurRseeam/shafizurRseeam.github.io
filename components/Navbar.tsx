@@ -5,6 +5,7 @@ import { ThemeToggle } from './ThemeToggle'
 
 const sections = [
   { id: 'publications', label: 'Publications' },
+  { id: 'research',     label: 'Research'     },
   { id: 'teaching',     label: 'Teaching'     },
   { id: 'professional', label: 'Experience'   },
 ]

@@ -20,7 +20,7 @@ export function ProfilePhoto({ src, name }: Props) {
     .toUpperCase()
 
   return (
-    <div className="relative h-28 w-28 sm:h-44 sm:w-44 rounded-2xl overflow-hidden
+    <div className="relative h-32 w-32 sm:h-44 sm:w-44 rounded-2xl overflow-hidden
                     ring-1 ring-stone-200 dark:ring-stone-800 shadow-sm shrink-0">
       {/* Initials fallback — always rendered beneath the photo */}
       <div

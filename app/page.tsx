@@ -264,7 +264,7 @@ export default function HomePage() {
 
       {/* ═══════════════════════════════════════════════════════ PROFESSIONAL ══ */}
       <Card id="professional">
-        <CardHeading>Professional Experience</CardHeading>
+        <CardHeading>Work Experience</CardHeading>
         {p.professional?.length > 0 ? (
           <div className="space-y-7">
             {p.professional.map((entry: any, i: number) => (
