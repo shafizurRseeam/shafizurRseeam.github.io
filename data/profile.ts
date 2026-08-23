@@ -103,9 +103,8 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
     {
       institution:    "Rochester Institute of Technology",
       institutionUrl: "https://www.rit.edu",
-      period:         "Jan 2023 – Present",
+      period:         "Jan 2023 – May 2027 (expected)",
       degree:         "Ph.D. in Computer and Information Sciences",
-      expected:       "Expected May 2027",
       advisor:        { label: "Dr. Yidan Hu", href: "https://yidanhu.csec.rit.edu/" },
     },
     {
