@@ -101,7 +101,14 @@ export default function HomePage() {
                   className="py-3.5 border-b border-dashed border-stone-200 dark:border-stone-800 last:border-0
                              flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-4 gap-y-0.5">
                   <div>
-                    <p className="font-bold text-[15px] text-stone-900 dark:text-stone-100">{entry.degree}</p>
+                    <p className="font-bold text-[15px] text-stone-900 dark:text-stone-100">
+                      {entry.degree}
+                      {entry.expected && (
+                        <span className="ml-2 font-normal italic text-stone-500 dark:text-stone-400 text-sm">
+                          {entry.expected}
+                        </span>
+                      )}
+                    </p>
                     <p className="text-sm text-stone-500 dark:text-stone-400">
                       {entry.institutionUrl ? (
                         <a href={entry.institutionUrl} target="_blank" rel="noopener noreferrer"
@@ -119,11 +126,6 @@ export default function HomePage() {
                         </span>
                       )}
                     </p>
-                    {entry.dissertation && (
-                      <p className="mt-0.5 text-sm text-stone-500 dark:text-stone-500 italic">
-                        Dissertation: “{entry.dissertation}”
-                      </p>
-                    )}
                   </div>
                   {entry.period && (
                     <span className="text-sm text-stone-400 dark:text-stone-500 shrink-0 font-mono">{entry.period}</span>

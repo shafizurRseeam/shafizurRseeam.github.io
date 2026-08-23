@@ -105,6 +105,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       institutionUrl: "https://www.rit.edu",
       period:         "Jan 2023 – Present",
       degree:         "Ph.D. in Computer and Information Sciences",
+      expected:       "Expected May 2027",
       advisor:        { label: "Dr. Yidan Hu", href: "https://yidanhu.csec.rit.edu/" },
     },
     {
