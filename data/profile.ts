@@ -13,7 +13,7 @@ export const profile = {
     "S. R. Seeam",
   ],
 
-  title:          "PhD Student",
+  title:          "PhD Candidate",
   department:     "Department of Cybersecurity",
   college:        "Golisano College of Computing and Information Sciences",
   affiliation:    "Rochester Institute of Technology",
@@ -26,8 +26,15 @@ export const profile = {
     url:  "https://yidanhu.csec.rit.edu/",
   },
 
+  // ── Job market (set active: false to hide the callout) ───────────────────
+  jobMarket: {
+    active:   true,
+    headline: "Exploring Opportunities for 2026⁠–⁠27",   // ⁠ keeps "2026–27" from wrapping at the dash
+    text:     "I am currently seeking tenure-track Assistant Professor positions in security and privacy, while also welcoming postdoctoral and industry research opportunities.",
+  },
+
   // ── Bio (used in Biography section) ──────────────────────────────────────
-  bio: `Hi! I'm Shafizur Rahman Seeam, a PhD student in the Department of Cybersecurity at the Rochester Institute of Technology, advised by Dr. Yidan Hu.
+  bio: `Hi! I'm Shafizur Rahman Seeam, a PhD candidate in the Department of Cybersecurity at the Rochester Institute of Technology, advised by Dr. Yidan Hu.
 
 My research focuses on differential privacy and privacy-preserving agents — building systems that allow useful data analysis and AI assistance without compromising individual user privacy. I'm broadly interested in how rigorous privacy guarantees can be designed into the next generation of intelligent systems, from mobile sensing to LLM-based agents.
 
@@ -54,6 +61,12 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
 
   // ── News ──────────────────────────────────────────────────────────────────
   news: [
+    {
+      date: "Sep 2026",
+      bold: "Ph.D. proposal:",
+      text: "Passed my dissertation proposal defense, \"Beyond Isolated Decisions: Advancing Dependence-Aware User-Side Privacy Mechanisms.\" I'm now a Ph.D. candidate.",
+      link: { label: "", href: "" },
+    },
     {
       date: "Jul 2026",
       bold: "PETS 2026:",
@@ -112,6 +125,10 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       institutionUrl: "https://www.du.ac.bd",
       period:         "Jan 2015 – Dec 2019",
       degree:         "B.Sc. in Electrical and Electronic Engineering",
+      advisors: [
+        { label: "Dr. Md Atiqur Rahman Ahad", href: "https://uel.ac.uk/about-uel/staff/md-atiqur-rahman-ahad" },
+        { label: "Dr. Miftahul Jannat Rasna", href: "https://scholar.google.com/citations?user=eqcjYtQAAAAJ&hl=en" },
+      ],
     },
   ],
 

@@ -73,6 +73,25 @@ export default function HomePage() {
           <ProfilePhoto src="/prof_pic.jpg" name={profile.name} />
         </div>
 
+        {/* Job-market callout — full card width, right under the intro */}
+        {p.jobMarket?.active && (
+          <div id="job-market"
+            className="mt-6 rounded-xl border border-emerald-200 dark:border-emerald-900
+                       bg-emerald-50/60 dark:bg-emerald-950/30 px-4 py-3
+                       text-[15px] leading-relaxed text-stone-700 dark:text-stone-300">
+            <p className="font-bold text-stone-900 dark:text-stone-100">{p.jobMarket.headline}</p>
+            <p className="mt-0.5">
+              {p.jobMarket.text}
+              {profile.cv && (
+                <> <a href={profile.cv} target="_blank" rel="noopener noreferrer"
+                     className="font-semibold text-emerald-700 dark:text-emerald-400 hover:underline underline-offset-2 whitespace-nowrap">
+                  Resume →
+                </a></>
+              )}
+            </p>
+          </div>
+        )}
+
         {/* Research interests — full card width so it doesn't compete with the photo */}
         {p.interests?.length > 0 && (
           <div className="mt-5 flex flex-wrap items-center gap-1.5">
@@ -96,7 +115,10 @@ export default function HomePage() {
               Education
             </p>
             <div>
-              {p.biography.map((entry: any, i: number) => (
+              {p.biography.map((entry: any, i: number) => {
+                // Accept a single `advisor` or a list of `advisors`
+                const advisors = entry.advisors ?? (entry.advisor ? [entry.advisor] : [])
+                return (
                 <div key={i}
                   className="py-3.5 border-b border-dashed border-stone-200 dark:border-stone-800 last:border-0
                              flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-4 gap-y-0.5">
@@ -109,22 +131,28 @@ export default function HomePage() {
                           {entry.institution}
                         </a>
                       ) : <span className="font-medium">{entry.institution}</span>}
-                      {entry.advisor?.label && (
-                        <span>
-                          {' '}· Advisor:{' '}
-                          <a href={entry.advisor.href} target="_blank" rel="noopener noreferrer"
-                             className="text-accent-700 dark:text-accent-400 font-medium hover:underline">
-                            {entry.advisor.label}
-                          </a>
-                        </span>
-                      )}
                     </p>
+                    {advisors.length > 0 && (
+                      <p className="text-sm text-stone-500 dark:text-stone-400">
+                        {advisors.length > 1 ? 'Advisors' : 'Advisor'}:{' '}
+                        {advisors.map((a: any, j: number) => (
+                          <span key={j}>
+                            {j > 0 && (j === advisors.length - 1 ? ' and ' : ', ')}
+                            <a href={a.href} target="_blank" rel="noopener noreferrer"
+                               className="text-accent-700 dark:text-accent-400 font-medium hover:underline">
+                              {a.label}
+                            </a>
+                          </span>
+                        ))}
+                      </p>
+                    )}
                   </div>
                   {entry.period && (
                     <span className="text-sm text-stone-400 dark:text-stone-500 shrink-0 font-mono">{entry.period}</span>
                   )}
                 </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         )}
@@ -190,16 +218,16 @@ export default function HomePage() {
                 </div>
                 <p className="text-sm text-stone-500 dark:text-stone-500">
                   <span className="font-medium">{entry.institution}</span>
-                  {entry.advisor?.label && (
-                    <span>
-                      {' '}· Advisor:{' '}
-                      <a href={entry.advisor.href} target="_blank" rel="noopener noreferrer"
-                         className="text-accent-700 dark:text-accent-400 font-medium hover:underline">
-                        {entry.advisor.label}
-                      </a>
-                    </span>
-                  )}
                 </p>
+                {entry.advisor?.label && (
+                  <p className="text-sm text-stone-500 dark:text-stone-500">
+                    Advisor:{' '}
+                    <a href={entry.advisor.href} target="_blank" rel="noopener noreferrer"
+                       className="text-accent-700 dark:text-accent-400 font-medium hover:underline">
+                      {entry.advisor.label}
+                    </a>
+                  </p>
+                )}
                 <ul className="mt-2.5 space-y-2 list-disc list-outside pl-5 marker:text-accent-500">
                   {entry.items.map((item: any, j: number) => (
                     <li key={j} className="text-[15px] text-stone-600 dark:text-stone-400 leading-relaxed">
