@@ -23,9 +23,9 @@ export const publications: Publication[] = [
   // ══════════════════════════════════════════════════════════════ 2026 ══════
 
   {
-    title: "PrivScope: Task-scoped Disclosure Control for Information-seeking Hybrid Agentic Systems",
+    title: "PrivScope: Task-Scoped Disclosure Control for Cloud-Assisted Information Seeking in Hybrid Agents",
     note:  "(Under Review)",
-    authors: ["Shafizur Rahman Seeam", "Zhengxiong Li", "Zhiyuan Yu", "Yimin Chen", "Yidan Hu"],
+    authors: ["Shafizur Rahman Seeam", "Zhiyuan Yu", "Yimin Chen", "Yidan Hu"],
     year: 2026,
     href: "https://arxiv.org/abs/2605.16630",
   },

@@ -57,7 +57,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
   },
 
   // ── CV / Resume ───────────────────────────────────────────────────────────
-  cv: "/CV_august.pdf",
+  cv: "/CV_Oct_2026.pdf",
 
   // ── News ──────────────────────────────────────────────────────────────────
   news: [
@@ -82,7 +82,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
     {
       date: "May 2026",
       bold: "New preprint:",
-      text: "PrivScope: Task-scoped Disclosure Control for Information-seeking Hybrid Agentic Systems.",
+      text: "PrivScope: Task-Scoped Disclosure Control for Cloud-Assisted Information Seeking in Hybrid Agents.",
       link: { label: "arXiv", href: "https://arxiv.org/abs/2605.16630" },
     },
     {
@@ -156,9 +156,8 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       location:      "Stockholm, Sweden",
       period:        "Jul 2021 – Present",
       items: [
-        "Lead Bangladesh operations, including team coordination, client engagement, and project delivery.",
-        "Oversee financial operations, including cash flow, payments, and expense control.",
-        "Deploy and maintain the company website, database, CVAT platform, and Linux servers.",
+        "Co-founded an AI operations company supporting clients across the AI lifecycle. Established and now lead its Bangladesh operations, including team coordination, client engagement, and project delivery.",
+        "Deploy and maintain technical infrastructure, including databases, CVAT annotation platform, and servers.",
       ],
     },
   ],
@@ -212,7 +211,7 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       location:    "Rochester, NY",
       period:      "Spring 2027",
       items: [
-        "Authentication and Security Models (CSEC 472) — primary instructor for ~35 students, full responsibility for course design, lectures, labs, project supervision, and assessment.",
+        "Authentication and Security Models (CSEC 472) — appointed as the primary instructor, responsible for course design, instruction, assessment, and student mentoring.",
       ],
     },
     {
@@ -221,25 +220,30 @@ Feel free to reach out at ss6365@rit.edu — I'm always happy to chat about rese
       location:    "Rochester, NY",
       period:      "Aug 2024 – Present",
       items: [
-        "Advanced Data Privacy (CSEC 721) — Spring 2026",
         "Authentication and Security Models (CSEC 472) — Fall 2024, Spring 2025, Fall 2025, Fall 2026",
+        "Advanced Data Privacy (CSEC 721) — Spring 2026",
         "Graduate Seminar in Computing Security (CSEC 759) — Spring 2025",
       ],
+      summary: {
+        label: "Across these courses",
+        text:  "Developed and graded laboratory assignments, contributed to course and project design, evaluated coursework and student projects, mentored students, and delivered guest lectures on privacy and security.",
+      },
     },
   ],
 
   // ── Misc ──────────────────────────────────────────────────────────────────
   misc: [
     {
-      title: "Academic & Professional Service",
+      title: "Academic Service",
       items: [
-        "Judge, GENIUS Olympiad international high-school project competition, 2023 and 2024.",
+        "Subreviewer: ICML (2026), INFOCOM (2026), PETS (2026, 2027).",
+        "Competition Judge: GENIUS Olympiad (International High School Project Competition), 2023 and 2024.",
       ],
     },
     {
       title: "Technical Skills",
       items: [
-        "Programming & AI: Python, Kotlin, SQL, MATLAB, TensorFlow, LangChain, Ollama",
+        "Programming & AI: Python, Kotlin, SQL, MATLAB, TensorFlow, LangChain",
         "Systems & Tools: Linux, Node.js, MongoDB, Android, CVAT, Git, LaTeX",
       ],
     },

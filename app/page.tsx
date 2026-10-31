@@ -277,6 +277,16 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
+                {/* Optional summary across all items */}
+                {entry.summary?.text && (
+                  <p className="mt-2 flex items-baseline gap-2 text-[15px] text-stone-600 dark:text-stone-400 leading-relaxed">
+                    <span className="text-accent-500 shrink-0">▹</span>
+                    <span>
+                      <span className="font-bold text-stone-800 dark:text-stone-200">{entry.summary.label}: </span>
+                      {entry.summary.text}
+                    </span>
+                  </p>
+                )}
               </div>
             ))}
           </div>
